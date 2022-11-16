@@ -1,0 +1,47 @@
+version: '3.9'
+services:
+  frontend:
+    image: node:16.14-alpine
+    container_name: NG_frontend-app
+    platform: linux/x86_64
+    working_dir: /app_frontend
+    volumes: 
+      - ./frontend:/app_frontend
+    tty: true
+    stdin_open: true
+    command: sh
+    restart: always
+    depends_on:
+      - backend
+    ports:
+      - 3000:3000
+
+
+  backend:
+    image: node:16.14-alpine
+    container_name: NG_backend-app
+    platform: linux/x86_64
+    working_dir: /app_backend
+    volumes: 
+      - ./backend:/app_backend
+    tty: true
+    stdin_open: true
+    command: sh
+    depends_on:
+      - db
+    ports:
+      - 3001:3001
+    environment:
+      - APP_PORT=3001
+      - JWT_SECRET=secretJWT
+
+
+  db:
+    image: postgres:15.1
+    container_name: NG_db
+    platform: linux/x86_64
+    restart: 'always'
+    ports:
+      - 3002:5432
+    environment:
+      - POSTGRES_PASSWORD=123456
