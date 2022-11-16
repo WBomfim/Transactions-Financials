@@ -1,0 +1,43 @@
+{
+  "name": "back-end_ng_transactions-financials",
+  "version": "1.0.0",
+  "description": "Back-end do teste técnico para a NG.Cash",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Willian Bomfim",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/bcryptjs": "2.4.2",
+    "@types/cors": "2.8.12",
+    "@types/express": "4.17.13",
+    "@types/jsonwebtoken": "8.5.6",
+    "@types/node": "16.11.7",
+    "@types/pg": "^8.6.5",
+    "@types/sequelize": "4.28.10",
+    "@typescript-eslint/eslint-plugin": "5.3.1",
+    "@typescript-eslint/parser": "5.3.1",
+    "eslint": "7.32.0",
+    "eslint-config-airbnb-base": "15.0.0",
+    "eslint-config-airbnb-typescript": "15.0.0",
+    "eslint-plugin-import": "2.25.3",
+    "eslint-plugin-sonarjs": "0.10.0",
+    "sequelize-cli": "6.3.0",
+    "ts-node": "10.7.0",
+    "ts-node-dev": "1.1.8",
+    "typescript": "4.4.4"
+  },
+  "dependencies": {
+    "bcryptjs": "2.4.3",
+    "cors": "2.8.5",
+    "dotenv": "10.0.0",
+    "express": "4.17.1",
+    "express-async-errors": "^3.1.1",
+    "jsonwebtoken": "8.5.1",
+    "pg": "^8.8.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.9.0",
+    "zod": "^3.19.1"
+  }
+}
