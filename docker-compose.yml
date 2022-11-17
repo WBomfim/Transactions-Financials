@@ -34,10 +34,15 @@ services:
     environment:
       - APP_PORT=3001
       - JWT_SECRET=secretJWT
+      - DB_USER=postgres
+      - DB_PASSWORD=123456
+      - DB_HOST=192.168.160.1
+      - DB_PORT=3002
+      - DB_NAME=NG_financials
 
 
   db:
-    image: postgres:15.1
+    image: postgres:13.4-alpine
     container_name: NG_db
     platform: linux/x86_64
     restart: 'always'
@@ -45,3 +50,8 @@ services:
       - 3002:5432
     environment:
       - POSTGRES_PASSWORD=123456
+      - POSTGRES_HOST_AUTH_METHOD=trust
+
+networks:
+  default:
+    name: NG_default-network
