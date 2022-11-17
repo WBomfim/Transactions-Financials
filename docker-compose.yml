@@ -45,6 +45,8 @@ services:
     image: postgres:13.4-alpine
     container_name: NG_db
     platform: linux/x86_64
+    volumes:
+      - ./db:/var/lib/postgresql/data
     restart: 'always'
     ports:
       - 3002:5432
