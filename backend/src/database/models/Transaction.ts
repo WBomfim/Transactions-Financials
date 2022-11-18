@@ -1,11 +1,12 @@
 import { Model, INTEGER, DECIMAL, DATE } from 'sequelize';
 import db from '.';
+import AccountModel from './Account';
 
 export default class TransactionModel extends Model {
   id!: number;
   debitedAccountId: number;
   creditedAccountId: number;
-  amount: number;
+  value: number;
   createdAt: Date;
 };
 
@@ -38,3 +39,6 @@ TransactionModel.init({
   tableName: 'Transactions',
   timestamps: false,
 });
+
+TransactionModel.belongsTo(AccountModel, { foreignKey: 'debitedAccountId', as: 'debitedAccount' });
+TransactionModel.belongsTo(AccountModel, { foreignKey: 'creditedAccountId', as: 'creditedAccount' });
