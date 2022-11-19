@@ -5,8 +5,13 @@ const transactionSchema = z.object({
   debitedAccountId: z.number(),
   creditedAccountId: z.number(),
   value: z.number(),
-  createdAt: z.string(),
+  createdAt: z.date(),
 });
+
+export type TransactionRequest = {
+	usernameCredited: string,
+  value: number,
+}
 
 export type Transaction = z.infer<typeof transactionSchema>;
 export { transactionSchema };
