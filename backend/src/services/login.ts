@@ -2,7 +2,6 @@ import UserModel from '../database/models/User';
 import { User } from '../types/User';
 import { TokenReturn } from '../types/TokenReturn';
 import { ErrorsTypes } from '../types/ErrorsCatalog';
-import { validateUserData } from './../helpers/validateUserData';
 import { verifyPassword } from '../helpers/passwordCrypto';
 import { generateToken } from '../helpers/handleToken';
 
