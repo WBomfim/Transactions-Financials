@@ -13,6 +13,15 @@ const createTransaction = async (req: Request, res: Response<Transaction>) => {
   );
 
   return res.status(StatusHttp.CREATED).json(transaction);
-}
+};
 
-export default { createTransaction };
+const getAllTransactions = async (req: Request, res: Response<Transaction[]>) => {
+  const { accountId } = req.body.user;
+  const transactions = await transactionService.getAllTransactions(accountId);
+  return res.status(StatusHttp.OK).json(transactions);
+};
+
+export default {
+  createTransaction,
+  getAllTransactions,
+};

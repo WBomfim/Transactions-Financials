@@ -1,8 +1,9 @@
 import TransactionModel from '../database/models/Transaction';
 import AccountModel from '../database/models/Account';
 import sequelizeInstance from '../database/models';
+import { Op } from 'sequelize';
 import { User } from './../types/User';
-import { TransactionRequest } from '../types/Transaction';
+import { TransactionRequest, Transaction } from '../types/Transaction';
 import { ErrorsTypes } from '../types/ErrorsCatalog';
 import { getAccountByUsername } from './account';
 import { calcOfTransfer } from '../helpers/calcTrasaction';
@@ -50,4 +51,19 @@ const createTransaction = async (userObj: User, transactionObj: TransactionReque
   return transaction;
 };
 
-export default { createTransaction };
+const getAllTransactions = async (accountId: number): Promise<Transaction[]> => {
+  return await TransactionModel.findAll({
+    where: {
+      [Op.or]: [
+        { debitedAccountId: accountId },
+        { creditedAccountId: accountId },
+      ],
+    },
+  });
+};
+
+
+export default {
+  createTransaction,
+  getAllTransactions,
+};

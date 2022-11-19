@@ -6,4 +6,6 @@ const router = Router();
 
 router.post('/', auth, transactionController.createTransaction);
 
+router.get('/', auth, transactionController.getAllTransactions);
+
 export default router;
