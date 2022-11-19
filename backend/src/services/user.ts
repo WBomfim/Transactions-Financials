@@ -3,6 +3,7 @@ import AccountModel from '../database/models/Account';
 import sequelizeInstance from '../database/models';
 import { User } from '../types/User';
 import { validateUserData } from './../helpers/validateUserData';
+import { hashPassword } from '../helpers/passwordCrypto';
 
 const createUser = async (userObj: User): Promise<User> => {  
   validateUserData(userObj);
@@ -12,12 +13,14 @@ const createUser = async (userObj: User): Promise<User> => {
     const { id: accountId } = await AccountModel.create(
       { balance: INITIAL_BALANCE },{ transaction }
     );
+    const { username, password } = userObj;
+    const hash = hashPassword(password);
     const user = await UserModel.create(
-      { ...userObj, accountId }, { transaction }
+      { username, password: hash, accountId }, { transaction }
     );
     return user;
   });
-
+  
   return newUser;
 };
 
@@ -25,12 +28,7 @@ const findAllUsers = async (): Promise<User[]> => {
   return UserModel.findAll({ attributes: { exclude: ['id', 'password'] }});
 };
 
-const findUserByName = async (username: string): Promise<User | null> => {
-  return UserModel.findOne({ where: { username } });
-};
-
 export default {
   createUser,
   findAllUsers,
-  findUserByName,
 }
