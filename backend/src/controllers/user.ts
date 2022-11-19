@@ -1,16 +1,17 @@
-import { Response, Request } from "express";
-import { User } from '../types/User';
+import { Response, Request } from 'express';
 import userService from '../services/user';
+import { User } from '../types/User';
+import StatusHttp from '../types/StatusHttp';
 
 const createUser = async (req: Request, res: Response<User>) => {
   const userObj: User = req.body;
   const user = await userService.createUser(userObj);
-  res.status(201).json(user);
+  return res.status(StatusHttp.CREATED).json(user);
 };
 
 const findAllUsers = async (_req: Request, res: Response<User[]>) => {
   const accounts = await userService.findAllUsers();
-  res.status(200).json(accounts);
+  return res.status(StatusHttp.OK).json(accounts);
 }
 
 export default {
