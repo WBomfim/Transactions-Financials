@@ -5,5 +5,12 @@ const accountSchema = z.object({
   balance: z.number(),
 });
 
+export type AccountAmount = {
+  accountId: number,
+  account: {
+    balance: number,
+  }
+};
+
 export type Account = z.infer<typeof accountSchema>;
 export { accountSchema };
