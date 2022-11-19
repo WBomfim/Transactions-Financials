@@ -6,7 +6,7 @@ import { AccountAmount } from '../types/Account';
 
 export const getAccountByUsername = async (username: string) => {
   const { accountId, account: { balance } } = await UserModel.findOne({
-    where: { username },
+    where: { username }, attributes: ['accountId'],
     include: [{ model: AccountModel, as: 'account', attributes: ['balance'] }],
   }) as unknown as AccountAmount;
   return { accountId , balance };
