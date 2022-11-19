@@ -7,6 +7,7 @@ type ErrorObject = {
 
 export enum ErrorsTypes {
   INVALID_PASSWORD = 'INVALID_PASSWORD',
+  INVALID_TOKEN = 'INVALID_TOKEN',
 }
 
 export type ErrorsCatalog = {
@@ -17,5 +18,9 @@ export const errorCatalog: ErrorsCatalog = {
   INVALID_PASSWORD: {
     statusHttp: StatusHttp.UNAUTHORIZED,
     message: 'Invalid password',
-  }
+  },
+  INVALID_TOKEN: {
+    statusHttp: StatusHttp.UNAUTHORIZED,
+    message: 'Invalid token',
+  },
 };

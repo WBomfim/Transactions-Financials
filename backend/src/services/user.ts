@@ -2,10 +2,12 @@ import UserModel from '../database/models/User';
 import AccountModel from '../database/models/Account';
 import sequelizeInstance from '../database/models';
 import { User } from '../types/User';
+import { TokenReturn } from './../types/TokenReturn';
 import { validateUserData } from './../helpers/validateUserData';
 import { hashPassword } from '../helpers/passwordCrypto';
+import { generateToken } from '../helpers/handleToken';
 
-const createUser = async (userObj: User): Promise<User> => {  
+const createUser = async (userObj: User): Promise<TokenReturn> => {  
   validateUserData(userObj);
   
   const newUser = await sequelizeInstance.transaction(async (transaction) => {
@@ -20,8 +22,11 @@ const createUser = async (userObj: User): Promise<User> => {
     );
     return user;
   });
-  
-  return newUser;
+
+  return {
+    username: newUser.username,
+    token: generateToken(newUser),
+  };
 };
 
 const findAllUsers = async (): Promise<User[]> => {
