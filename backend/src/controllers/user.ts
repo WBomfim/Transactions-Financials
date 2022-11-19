@@ -10,7 +10,7 @@ const createUser = async (req: Request, res: Response<TokenReturn>) => {
   return res.status(StatusHttp.CREATED).json(user);
 };
 
-const findAllUsers = async (_req: Request, res: Response<User[]>) => {
+const findAllUsers = async (_req: Request, res: Response<Partial<User>[]>) => {
   const accounts = await userService.findAllUsers();
   return res.status(StatusHttp.OK).json(accounts);
 }

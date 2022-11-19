@@ -33,8 +33,8 @@ const createUser = async (userObj: User): Promise<TokenReturn> => {
   };
 };
 
-const findAllUsers = async (): Promise<User[]> => {
-  return UserModel.findAll({ attributes: { exclude: ['id', 'password'] }});
+const findAllUsers = async (): Promise<Partial<User>[]> => {
+  return UserModel.findAll({ attributes: { exclude: ['password'] }});
 };
 
 export default {
