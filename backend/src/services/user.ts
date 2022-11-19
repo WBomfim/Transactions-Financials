@@ -1,6 +1,7 @@
 import UserModel from '../database/models/User';
 import AccountModel from '../database/models/Account';
 import sequelizeInstance from '../database/models';
+import { Op } from 'sequelize';
 import { User } from '../types/User';
 import { TokenReturn } from './../types/TokenReturn';
 import { validateUserData } from './../helpers/validateUserData';
@@ -33,8 +34,11 @@ const createUser = async (userObj: User): Promise<TokenReturn> => {
   };
 };
 
-const findAllUsers = async (): Promise<Partial<User>[]> => {
-  return await UserModel.findAll({ attributes: { exclude: ['password'] }});
+const findAllUsers = async (ids: number): Promise<Partial<User>[]> => {
+  return await UserModel.findAll({
+    where: { id: { [Op.notIn]: [ids] } },
+    attributes: { exclude: ['password'] },
+  });
 };
 
 export default {
