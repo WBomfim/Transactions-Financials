@@ -44,4 +44,4 @@ const findAllUsers = async (ids: number): Promise<Partial<User>[]> => {
 export default {
   createUser,
   findAllUsers,
-}
+};

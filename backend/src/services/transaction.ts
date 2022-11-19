@@ -62,8 +62,25 @@ const getAllTransactions = async (accountId: number): Promise<Transaction[]> => 
   });
 };
 
+const getCreditTransactions = async (accountId: number): Promise<Transaction[]> => {
+  return await TransactionModel.findAll({
+    where: {
+      creditedAccountId: accountId,
+    },
+  });
+};
+
+const getDebitTransactions = async (accountId: number): Promise<Transaction[]> => {
+  return await TransactionModel.findAll({
+    where: {
+      debitedAccountId: accountId,
+    },
+  });
+};
 
 export default {
   createTransaction,
   getAllTransactions,
+  getCreditTransactions,
+  getDebitTransactions,
 };

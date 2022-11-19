@@ -14,7 +14,7 @@ const findAllUsers = async (req: Request, res: Response<Partial<User>[]>) => {
   const { id } = req.body.user;
   const accounts = await userService.findAllUsers(id);
   return res.status(StatusHttp.OK).json(accounts);
-}
+};
 
 export default {
   createUser,
