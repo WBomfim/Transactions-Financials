@@ -9,6 +9,7 @@ export enum ErrorsTypes {
   INVALID_PASSWORD = 'INVALID_PASSWORD',
   INVALID_TOKEN = 'INVALID_TOKEN',
   USER_ALREADY_EXISTS = 'USER_ALREADY_EXISTS',
+  INVALID_USERNAME = 'INVALID_USERNAME',
 }
 
 export type ErrorsCatalog = {
@@ -27,5 +28,9 @@ export const errorCatalog: ErrorsCatalog = {
   USER_ALREADY_EXISTS: {
     statusHttp: StatusHttp.CONFLICT,
     message: 'User already exists',
+  },
+  INVALID_USERNAME: {
+    statusHttp: StatusHttp.BAD_REQUEST,
+    message: 'Invalid username',
   },
 };
