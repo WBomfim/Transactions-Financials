@@ -3,13 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import { getLogin, UserToken, removeLogin } from '../../helpers/handleStorage';
 import './Header.css';
 
-type Balance = {
+export type Balance = {
   balance: number;
 };
 
 export default function Header({ balance }: Balance): JSX.Element {
   const [username, setUsername] = useState<string>('');
-  const [userAccount, setUserAccount] = useState<string>('');
+  const [userAccount, setUserAccount] = useState<number>(0);
   const [showSaldo, setShowSaldo] = useState<boolean>(false);
 
   const navigate = useNavigate();
@@ -18,7 +18,7 @@ export default function Header({ balance }: Balance): JSX.Element {
     const getUserData = (): void => {
     const { username, account } = getLogin() as UserToken;
     setUsername(username || '');
-    setUserAccount(account || '');
+    setUserAccount(account || 0);
     }
     getUserData();
   }, []);
