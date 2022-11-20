@@ -12,7 +12,7 @@ export default function Registration(): JSX.Element {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const verifyUserLoged = () => {
+    const verifyUserLoged = (): void => {
       const userInfos = getLogin();
       if (!userInfos?.token) return;
       return navigate('/home');
@@ -21,7 +21,7 @@ export default function Registration(): JSX.Element {
   }, [navigate]);
 
   useEffect(() => {
-    const verifyRegisterData = () => {
+    const verifyRegisterData = (): void => {
       const nameLengthMin = 3;
       const passwordLengthMin = 8;
       const errors = [
@@ -49,6 +49,14 @@ export default function Registration(): JSX.Element {
 
   return (
     <main>
+      <div>
+        <button
+          type="button"
+          onClick={ () => navigate('/login') }
+          >
+          ↩️
+        </button>
+      </div>
       <form>
         <label htmlFor='name-input'>
           Nome:
@@ -85,14 +93,6 @@ export default function Registration(): JSX.Element {
           A senha deve ter mais de 8 caracteres, com
           pelo menos uma letra maiúscula e um número.
         </p>
-      </div>
-      <div>
-        <button
-          type="button"
-          onClick={ () => navigate('/login') }
-          >
-          Voltar para Login
-        </button>
       </div>
       <div>
         {failedTryRegister && (
