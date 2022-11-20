@@ -15,6 +15,7 @@ const login = async (loginObj: User): Promise<TokenReturn> => {
 
   return {
     username: user.username,
+    account: user.accountId,
     token: generateToken(user),
   };
 };

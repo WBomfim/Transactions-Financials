@@ -30,6 +30,7 @@ const createUser = async (userObj: User): Promise<TokenReturn> => {
 
   return {
     username: newUser.username,
+    account: newUser.accountId,
     token: generateToken(newUser),
   };
 };
