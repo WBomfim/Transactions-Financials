@@ -14,7 +14,7 @@ export default function Registration(): JSX.Element {
   useEffect(() => {
     const verifyUserLoged = () => {
       const userInfos = getLogin();
-      if (!userInfos?.token) return navigate('/login');
+      if (!userInfos?.token) return;
       return navigate('/home');
     };
     verifyUserLoged();
@@ -85,6 +85,14 @@ export default function Registration(): JSX.Element {
           A senha deve ter mais de 8 caracteres, com
           pelo menos uma letra maiúscula e um número.
         </p>
+      </div>
+      <div>
+        <button
+          type="button"
+          onClick={ () => navigate('/login') }
+          >
+          Voltar para Login
+        </button>
       </div>
       <div>
         {failedTryRegister && (
