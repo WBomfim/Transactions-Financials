@@ -8,7 +8,7 @@ export const saveLogin = (data: UserToken): void => {
 }
 
 export const getLogin = (): UserToken | null => {
-  return JSON.parse(localStorage.getItem('userNG') || 'null');
+  return JSON.parse(localStorage.getItem('userNG') || '{}');
 }
 
 export const removeLogin = (): void => {
