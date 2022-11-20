@@ -37,12 +37,14 @@ export default function Header({ balance }: Balance): JSX.Element {
         <div>
           <p>{ `Cc: ${userAccount}` }</p>
         </div>
-        <div>
+        <div
+          role='button'
+          onClick={ () => setShowSaldo(!showSaldo) }
+        >
           <p>Saldo</p>
-          <p
-            role='button'
-            onClick={ () => setShowSaldo(!showSaldo) }
-          >{ showSaldo ? `R$ ${balance.toString().replace('.', ',')}` : 'Olho' }</p>
+          <p>
+            { showSaldo ? `R$ ${balance.toString().replace('.', ',')}` : 'Olho' }
+          </p>
         </div>
         <div
           role='button'
