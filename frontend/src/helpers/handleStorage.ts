@@ -1,6 +1,6 @@
 export type UserToken = {
   username: string;
-  account: string;
+  account: number;
   token: string;
 }
 
