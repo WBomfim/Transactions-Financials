@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getLogin, UserToken, removeLogin } from '../helpers/handleStorage';
+import { getLogin, UserToken, removeLogin } from '../../helpers/handleStorage';
+import './Header.css';
 
 type Saldo = {
   saldo: number;
@@ -41,7 +42,7 @@ export default function Header({saldo}: Saldo): JSX.Element {
           <p
             role='button'
             onClick={ () => setShowSaldo(!showSaldo) }
-          >{ showSaldo ? saldo.toFixed(2).replace('.', ',') : 'Olho' }</p>
+          >{ `R$ ${showSaldo ? saldo.toFixed(2).replace('.', ',') : 'Olho'}` }</p>
         </div>
         <div
           role='button'
