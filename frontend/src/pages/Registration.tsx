@@ -1,10 +1,15 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { requestRegister } from '../helpers/handleRequests';
+import { saveLogin, UserToken } from '../helpers/handleStorage';
 
 export default function Registration(): JSX.Element {
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [disabledButton, setDisabledButton] = useState<boolean>(true);
   const [failedTryRegister, setFailedTryRegister] = useState<boolean>(false);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const verifyRegisterData = () => {
@@ -13,14 +18,25 @@ export default function Registration(): JSX.Element {
       const errors = [
         !username || username.length < nameLengthMin,
         !password || password.length < passwordLengthMin,
-        !password ||
-          !password.match(/(?=.*[A-Z])(?=.*[0-9]).*$/),
+        !password || !password.match(/(?=.*[A-Z])(?=.*[0-9]).*$/),
       ];
       const hasErrors = errors.some((error) => error);
       setDisabledButton(hasErrors);
     };
     verifyRegisterData();
   }, [username, password]);
+
+  const register = async (event: React.MouseEvent<HTMLButtonElement>): Promise<void> => {
+    event.preventDefault();
+    setFailedTryRegister(false);
+    try {
+      const response = await requestRegister<UserToken>('/users', { username, password });
+      saveLogin(response);
+      return navigate('/home');
+    } catch (error) {
+      setFailedTryRegister(true);
+    }
+  };
 
   return (
     <main>
@@ -50,14 +66,21 @@ export default function Registration(): JSX.Element {
         <button
           type='submit'
           disabled={disabledButton}
+          onClick={(event) => register(event)}
         >
           CADASTRAR
         </button>
       </form>
       <div>
-        {failedTryRegister ? (
+        <p>
+          A senha deve ter mais de 8 caracteres, com
+          pelo menos uma letra maiúscula e um número.
+        </p>
+      </div>
+      <div>
+        {failedTryRegister && (
           <p>Você já está cadastrado em nosso banco de dados.</p>
-        ) : null}
+        )}
       </div>
     </main>
   );

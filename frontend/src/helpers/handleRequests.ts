@@ -12,12 +12,12 @@ export const setToken = (): void => {
   }
 };
 
-export const requestRegister = async (rota: string, body: unknown): Promise<unknown> => {
+export const requestRegister = async <T>(rota: string, body: unknown): Promise<T> => {
   const { data } = await api.post(rota, body);
   return data;
 };
 
-export const requestData = async (rota: string): Promise<unknown> => {
+export const requestData = async <T>(rota: string): Promise<T> => {
   const { data } = await api.get(rota);
   return data;
 }
