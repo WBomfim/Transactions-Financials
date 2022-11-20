@@ -15,25 +15,25 @@ const createTransaction = async (req: Request, res: Response<Transaction>) => {
   return res.status(StatusHttp.CREATED).json(transaction);
 };
 
-const getAllTransactions = async (req: Request, res: Response<Transaction[]>) => {
+const getAllTransactions = async (req: Request, res: Response<Transaction[] | []>) => {
   const { accountId } = req.body.user;
   const transactions = await transactionService.getAllTransactions(accountId);
   return res.status(StatusHttp.OK).json(transactions);
 };
 
-const getCreditTransactions = async (req: Request, res: Response<Transaction[]>) => {
+const getCreditTransactions = async (req: Request, res: Response<Transaction[] | []>) => {
   const { accountId } = req.body.user;
   const transactions = await transactionService.getCreditTransactions(accountId);
   return res.status(StatusHttp.OK).json(transactions);
 };
 
-const getDebitTransactions = async (req: Request, res: Response<Transaction[]>) => {
+const getDebitTransactions = async (req: Request, res: Response<Transaction[] | []>) => {
   const { accountId } = req.body.user;
   const transactions = await transactionService.getDebitTransactions(accountId);
   return res.status(StatusHttp.OK).json(transactions);
 };
 
-const getTransactionsByDate = async (req: Request, res: Response<Transaction[]>) => {
+const getTransactionsByDate = async (req: Request, res: Response<Transaction[] | []>) => {
   const { accountId } = req.body.user;
   const { date } = req.body;
   const transactions = await transactionService.getTransactionsByDate(accountId, date);

@@ -52,7 +52,7 @@ const createTransaction = async (userObj: User, transactionObj: TransactionReque
   return transaction;
 };
 
-const getAllTransactions = async (accountId: number): Promise<Transaction[]> => {
+const getAllTransactions = async (accountId: number): Promise<Transaction[] | []> => {
   return await TransactionModel.findAll({
     where: {
       [Op.or]: [
@@ -63,7 +63,7 @@ const getAllTransactions = async (accountId: number): Promise<Transaction[]> => 
   });
 };
 
-const getCreditTransactions = async (accountId: number): Promise<Transaction[]> => {
+const getCreditTransactions = async (accountId: number): Promise<Transaction[] | []> => {
   return await TransactionModel.findAll({
     where: {
       creditedAccountId: accountId,
@@ -71,7 +71,7 @@ const getCreditTransactions = async (accountId: number): Promise<Transaction[]> 
   });
 };
 
-const getDebitTransactions = async (accountId: number): Promise<Transaction[]> => {
+const getDebitTransactions = async (accountId: number): Promise<Transaction[] | []> => {
   return await TransactionModel.findAll({
     where: {
       debitedAccountId: accountId,
@@ -79,7 +79,8 @@ const getDebitTransactions = async (accountId: number): Promise<Transaction[]> =
   });
 };
 
-const getTransactionsByDate = async (accountId: number, date: string): Promise<Transaction[]> => {
+const getTransactionsByDate = async (accountId: number, date: string):
+  Promise<Transaction[] | []> => {
   const convertedDate = formatDate(date);
   return await TransactionModel.findAll({
     where: {
