@@ -12,4 +12,6 @@ router.get('/cash-in', auth, transactionController.getCreditTransactions);
 
 router.get('/cash-out', auth, transactionController.getDebitTransactions);
 
+router.get('/date', auth, transactionController.getTransactionsByDate);
+
 export default router;

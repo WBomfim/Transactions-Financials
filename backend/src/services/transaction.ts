@@ -7,6 +7,7 @@ import { TransactionRequest, Transaction } from '../types/Transaction';
 import { ErrorsTypes } from '../types/ErrorsCatalog';
 import { getAccountByUsername } from './account';
 import { calcOfTransfer } from '../helpers/calcTrasaction';
+import { formatDate } from '../helpers/formatDate';
 
 const createTransaction = async (userObj: User, transactionObj: TransactionRequest) => {
   const { usernameCredited, value } = transactionObj;
@@ -78,9 +79,25 @@ const getDebitTransactions = async (accountId: number): Promise<Transaction[]> =
   });
 };
 
+const getTransactionsByDate = async (accountId: number, date: string): Promise<Transaction[]> => {
+  const convertedDate = formatDate(date);
+  return await TransactionModel.findAll({
+    where: {
+      [Op.or]: [
+        { debitedAccountId: accountId },
+        { creditedAccountId: accountId },
+      ],
+      createdAt: {
+        [Op.between]: [`${convertedDate} 00:00:00`, `${convertedDate} 23:59:59`],
+      },
+    },
+  });
+};
+
 export default {
   createTransaction,
   getAllTransactions,
   getCreditTransactions,
   getDebitTransactions,
+  getTransactionsByDate,
 };

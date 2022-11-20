@@ -33,9 +33,17 @@ const getDebitTransactions = async (req: Request, res: Response<Transaction[]>) 
   return res.status(StatusHttp.OK).json(transactions);
 };
 
+const getTransactionsByDate = async (req: Request, res: Response<Transaction[]>) => {
+  const { accountId } = req.body.user;
+  const { date } = req.body;
+  const transactions = await transactionService.getTransactionsByDate(accountId, date);
+  return res.status(StatusHttp.OK).json(transactions);
+};
+
 export default {
   createTransaction,
   getAllTransactions,
   getCreditTransactions,
   getDebitTransactions,
+  getTransactionsByDate,
 };
