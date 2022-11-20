@@ -3,11 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import { getLogin, UserToken, removeLogin } from '../../helpers/handleStorage';
 import './Header.css';
 
-type Saldo = {
-  saldo: number;
+type Balance = {
+  balance: number;
 };
 
-export default function Header({saldo}: Saldo): JSX.Element {
+export default function Header({ balance }: Balance): JSX.Element {
   const [username, setUsername] = useState<string>('');
   const [userAccount, setUserAccount] = useState<string>('');
   const [showSaldo, setShowSaldo] = useState<boolean>(false);
@@ -15,7 +15,7 @@ export default function Header({saldo}: Saldo): JSX.Element {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const getUserData = () => {
+    const getUserData = (): void => {
     const { username, account } = getLogin() as UserToken;
     setUsername(username || '');
     setUserAccount(account || '');
@@ -23,7 +23,7 @@ export default function Header({saldo}: Saldo): JSX.Element {
     getUserData();
   }, []);
 
-  const logout = () => {
+  const logout = (): void => {
     removeLogin();
     navigate('/login');
   }
@@ -42,7 +42,7 @@ export default function Header({saldo}: Saldo): JSX.Element {
           <p
             role='button'
             onClick={ () => setShowSaldo(!showSaldo) }
-          >{ `R$ ${showSaldo ? saldo.toFixed(2).replace('.', ',') : 'Olho'}` }</p>
+          >{ showSaldo ? `R$ ${balance.toString().replace('.', ',')}` : 'Olho' }</p>
         </div>
         <div
           role='button'

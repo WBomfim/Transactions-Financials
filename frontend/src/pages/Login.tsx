@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { requestRegister } from '../helpers/handleRequests';
 import { getLogin, saveLogin, UserToken } from '../helpers/handleStorage';
 
-export default function Login() {
+export default function Login(): JSX.Element {
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [disabledButton, setDisabledButton] = useState<boolean>(true);
@@ -21,7 +21,7 @@ export default function Login() {
   }, [navigate]);
 
   useEffect(() => {
-    const verifyRegisterData = () => {
+    const verifyRegisterData = (): void => {
       const nameLengthMin = 3;
       const passwordLengthMin = 8;
       const errors = [
