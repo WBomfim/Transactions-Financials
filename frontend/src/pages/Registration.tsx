@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { requestRegister } from '../helpers/handleRequests';
-import { saveLogin, UserToken } from '../helpers/handleStorage';
+import { getLogin, saveLogin, UserToken } from '../helpers/handleStorage';
 
 export default function Registration(): JSX.Element {
   const [username, setUsername] = useState<string>('');
@@ -10,6 +10,15 @@ export default function Registration(): JSX.Element {
   const [failedTryRegister, setFailedTryRegister] = useState<boolean>(false);
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const verifyUserLoged = () => {
+      const userInfos = getLogin();
+      if (!userInfos?.token) return navigate('/login');
+      return navigate('/home');
+    };
+    verifyUserLoged();
+  }, [navigate]);
 
   useEffect(() => {
     const verifyRegisterData = () => {
