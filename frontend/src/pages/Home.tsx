@@ -24,8 +24,6 @@ export default function Home(): JSX.Element {
     getTransactions();
   }, []);
 
-  if (transactions.length === 0) return <span>Carregando...</span>;
-
   return (
     <>
       <Header balance={ balance } />

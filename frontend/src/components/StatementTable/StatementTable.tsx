@@ -23,6 +23,8 @@ export default function StatementTable(
     getUserData();
   }, []);
 
+  if (transactions.length === 0) return <span>Carregando...</span>;
+
   return (
     <>
       <table>
