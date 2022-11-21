@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { requestRegister } from '../helpers/handleRequests';
-import { getLogin, saveLogin, UserToken } from '../helpers/handleStorage';
+import { requestRegister } from '../../helpers/handleRequests';
+import { getLogin, saveLogin, UserToken } from '../../helpers/handleStorage';
 
 export default function Registration(): JSX.Element {
   const [username, setUsername] = useState<string>('');

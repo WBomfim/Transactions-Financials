@@ -1,0 +1,6 @@
+nav {
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 10px;
+}
