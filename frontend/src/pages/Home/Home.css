@@ -3,7 +3,7 @@ nav {
   display: flex;
   flex-direction: column-reverse;
   justify-content: space-evenly;
-  padding: 10px;
+  padding: 82px 10px 10px;
 }
 
 .btnNewTransaction {
@@ -19,17 +19,26 @@ nav {
 }
 
 .divBtnNewTrans {
-  margin-top: 10px;
-  width: 90%;
+  margin: 8px;
+  width: 100%;
 }
 
 .containerFilter {
   align-items: flex-start;
+  background-color: black;
+  border-radius: 12px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   margin-top: 10px;
+  padding: 15px;
   width: 100%;
+}
+
+.containerFilter p {
+  color: #fffffe;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
 }
 
 .divBtnFilter {
@@ -39,10 +48,10 @@ nav {
 }
 
 .divBtnFilter button {
-  background-color: #199f67;
+  background-color: #72757e;
   border: none;
   border-radius: 8px;
-  box-shadow: 2px 1px 5px #333436;
+  box-shadow: 2px 1px 5px #2e2f30;
   color: #fffffe;
   cursor: pointer;
   font-size: 1.1rem;
