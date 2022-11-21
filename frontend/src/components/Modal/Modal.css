@@ -18,11 +18,10 @@
   background-color: black;
   border-radius: 12px;
   display: flex;
-  height: 50%;
+  height: 380px;
   justify-content: center;
   margin-right: 25px;
   max-width: 700px;
-  min-height: 360px;
   padding: 16px;
   width: 90%;
 }
@@ -46,7 +45,7 @@
   font-weight: 900;
   height: 30px;
   margin-left: -55px;
-  margin-top: -305px;
+  margin-top: -315px;
   position: static;
   width: 30px;
 }

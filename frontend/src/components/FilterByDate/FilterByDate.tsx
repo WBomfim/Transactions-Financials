@@ -72,6 +72,7 @@ export default function FilterByDate(
         <button
           className='btnFilter'
           type="button"
+          disabled={ !date }
           onClick={ getTransactions }
         >
           Filtrar

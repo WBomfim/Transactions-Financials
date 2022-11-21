@@ -80,3 +80,8 @@
   background-color: #167d51;
   transition: 0.5s;
 }
+
+.btnFilter:disabled {
+  background-color: #70c4a0;
+  cursor: not-allowed;
+}
