@@ -8,8 +8,13 @@ type Recipient = {
   accountId: number;
 };
 
+type FunctionProps = {
+  setShowTransfer: (value: boolean) => void;
+  updateBalance: () => void;
+};
+
 export default function DoTransfer(
-  { setShowTransfer }: { setShowTransfer: (show: boolean) => void }
+  { setShowTransfer, updateBalance }: FunctionProps,
 ): JSX.Element {
   const [recipients, setRecipients] = useState<Recipient[]>([]);
   const [recipientSelected, setRecipientSelected] = useState<string>('');
@@ -49,6 +54,7 @@ export default function DoTransfer(
       '/transactions', {usernameCredited: recipientSelected, value: Number(amount)}
     );
     setShowTransfer(false);
+    updateBalance();
   };
 
   return (

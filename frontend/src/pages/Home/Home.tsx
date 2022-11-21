@@ -22,16 +22,20 @@ export default function Home(): JSX.Element {
   }, [transactions]);
 
   useEffect(() => {
-    const getBalance = async (): Promise<void> => {
+    const loadingPage = async (): Promise<void> => {
       setLoading(true);
-      setToken();
-      const { balance } = await requestData<Balance>('/accounts/balance');
-      setBalance(balance);
+      await getBalance();
+      await getTransactions();
       setLoading(false);
     };
-    getBalance();
-    getTransactions();
+    loadingPage();
   }, []);
+
+  const getBalance = async (): Promise<void> => {
+    setToken();
+    const { balance } = await requestData<Balance>('/accounts/balance');
+    setBalance(balance);
+  };
 
   const getTransactions = async (): Promise<void> => {
     setToken();
@@ -122,6 +126,7 @@ export default function Home(): JSX.Element {
               children={ (
                 <DoTransfer
                   setShowTransfer={ setShowTransfer }
+                  updateBalance={ getBalance }
                 />
               )}
             />
