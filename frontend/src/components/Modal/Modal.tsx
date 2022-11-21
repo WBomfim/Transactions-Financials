@@ -10,17 +10,17 @@ type ModalProps = {
 export default function Modal({ children, setShow, show }: ModalProps): JSX.Element {
   return (
     <div className='modal'>
+      <div className='modal-main'>
+        <div className='modal-children'>
+          { children }
+        </div>
+      </div>
       <button
         className='modal-close'
         onClick={ () => setShow(!show) }
       >
         X
       </button>
-      <div className='modal-main'>
-        <div className='modal-children'>
-          { children }
-        </div>
-      </div>
     </div>
   )
 };

@@ -10,7 +10,7 @@
   top: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
-  z-index: 100;
+  z-index: 1;
 }
 
 .modal-main {
@@ -20,6 +20,8 @@
   display: flex;
   height: 50%;
   justify-content: center;
+  margin-right: 25px;
+  max-width: 700px;
   padding: 16px;
   width: 90%;
 }
@@ -34,7 +36,7 @@
 
 .modal-close {
   align-items: center;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0);
   border: none;
   color: whitesmoke;
   cursor: pointer;
@@ -42,9 +44,8 @@
   font-size: 20px;
   font-weight: 900;
   height: 30px;
-  justify-content: center;
-  position: absolute;
-  right: 12%;
-  top: 28%;
+  margin-left: -55px;
+  margin-top: -305px;
+  position: static;
   width: 30px;
 }
