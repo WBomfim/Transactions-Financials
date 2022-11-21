@@ -43,7 +43,7 @@ export default function Header({ balance }: Balance): JSX.Element {
         >
           <p>Saldo</p>
           <p>
-            { showSaldo ? `R$ ${balance.toString().replace('.', ',')}` : 'Olho' }
+            { showSaldo ? `R$ ${balance.toString().replace('.', ',')}` : '*******' }
           </p>
         </div>
         <div

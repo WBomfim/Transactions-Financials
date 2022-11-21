@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { setToken, requestData } from '../../helpers/handleRequests';
 import { getLogin } from '../../helpers/handleStorage';
 import { Transaction } from '../StatementTable/StatementTable'
+import './FilterByDate.css';
 
 export default function FilterByDate(
   { setTransactions }: { setTransactions: React.Dispatch<React.SetStateAction<Transaction[] | []>> }
@@ -27,9 +28,9 @@ export default function FilterByDate(
   };
 
   return (
-    <>
+    <div className="filterByDate">
       <h2>Selecione a data desejada</h2>
-      <div>
+      <div className="filterInputs">
         <input
           type="date"
           value={ date }
@@ -74,6 +75,6 @@ export default function FilterByDate(
           Filtrar
         </button>
       </div>
-    </>
+    </div>
   );
 };
