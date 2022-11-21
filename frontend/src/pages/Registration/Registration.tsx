@@ -75,6 +75,7 @@ export default function Registration(): JSX.Element {
             />
           </label>
           <button
+            className='btnlogin'
             type='submit'
             disabled={disabledButton}
             onClick={(event) => register(event)}
