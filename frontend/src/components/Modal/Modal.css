@@ -1,0 +1,47 @@
+.modal {
+  align-items: center;
+  background-color: rgba(63, 61, 61, 0.38);
+  border-radius: 5px;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  left: 50%;
+  padding: 16px;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  z-index: 100;
+}
+
+.modal-main {
+  align-items: center;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  display: flex;
+  height: 30%;
+  justify-content: center;
+  padding: 16px;
+  width: 50%;
+}
+
+.modal-children {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.modal-close {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  font-size: 20px;
+  height: 30px;
+  justify-content: center;
+  position: absolute;
+  right: 25%;
+  top: 35%;
+  width: 30px;
+}
