@@ -1,0 +1,36 @@
+table {
+  align-items: center;
+  border-collapse: collapse;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+tr {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+  width: 100px;
+}
+
+td {
+  align-items: center;
+  border: 1px solid #ddd;
+  display: flex;
+  justify-content: center;
+  padding: 0 8px;
+  text-align: center;
+  width: 100px;
+}
+
+.valueTransactions {
+  display: flex;
+  justify-content: space-between;
+}

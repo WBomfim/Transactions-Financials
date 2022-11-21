@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getLogin } from '../../helpers/handleStorage';
 import { UserToken } from '../../helpers/handleStorage';
+import './StatementeTable.css';
 
 export type Transaction = {
   id: number;
@@ -40,7 +41,10 @@ export default function StatementTable(
             <tr key={ id }>
               <td>{ new Date(createdAt).toLocaleDateString('pt-BR') }</td>
               <td>{ userId === debitedAccountId ? 'Débito' : 'Crédito' }</td>
-              <td>{ `R$ ${value.toString().replace('.', ',')}` }</td>
+              <td className='valueTransactions'>
+                <p>R$</p>
+                <p>{ value.toString().replace('.', ',') }</p>
+              </td>
             </tr>
           ))}
         </tbody>

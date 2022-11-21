@@ -27,7 +27,9 @@ export default function Home(): JSX.Element {
   return (
     <>
       <Header balance={ balance } />
-      <StatementTable transactions={transactions} />
+      <main>
+        <StatementTable transactions={transactions} />
+      </main>
     </>
   );
 };
