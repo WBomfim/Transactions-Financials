@@ -1,0 +1,96 @@
+.containerlogin {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
+}
+
+.containerlogin h1 {
+  color: #fff;
+  filter: drop-shadow(0 0 0.1rem #15b76b);
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+form {
+  align-items: center;
+  background-color: black;
+  border-radius: 25px;
+  display: flex;
+  filter: drop-shadow(0 0 3rem #15b76b);
+  flex-direction: column;
+  height: 50%;
+  justify-content: center;
+  width: 70%;
+}
+
+form label {
+  align-items: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+form input {
+  background-color: #1f1f1f;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 2px 1px 5px #3f3f3f;
+  color: #fffffe;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 10px 20px;
+  text-align: center;
+  width: 90%;
+}
+
+form input:hover {
+  background-color: #1f1f1f;
+  box-shadow: 2px 1px 5px #3f3f3f;
+  transition: 0.5s;
+}
+
+form button {
+  background-color: #15b76b;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 2px 1px 5px #3f3f3f;
+  color: #fffffe;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: 600;
+  height: 40px;
+  margin: 10px 0;
+  transition: 0.5s;
+  width: 90%;
+}
+
+.btnlogin:disabled {
+  background-color: #1f1f1f;
+  box-shadow: 2px 1px 5px #3f3f3f;
+  transition: 0.7s;
+}
+
+.btnGoRegister {
+  background-color: #1f1f1f;
+  box-shadow: 2px 1px 5px #3f3f3f;
+}
+
+.btnGoRegister:hover {
+  background-color: #d814aa;
+  transition: 0.5s;
+}
+
+.failedLogin {
+  color: red;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 10px 0;
+}
+

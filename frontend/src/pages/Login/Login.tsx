@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { requestRegister } from '../../helpers/handleRequests';
 import { getLogin, saveLogin, UserToken } from '../../helpers/handleStorage';
+import './Login.css';
 
 export default function Login(): JSX.Element {
   const [username, setUsername] = useState<string>('');
@@ -49,48 +50,53 @@ export default function Login(): JSX.Element {
 
   return (
     <main>
-      <form>
-        <label htmlFor='name-input'>
-          Nome:
-          <input
-            id='name-input'
-            type='text'
-            onChange={({ target: { value } }) => {
-              setUsername(value);
-            }}
-            placeholder='Marcelo da Silva'
-          />
-        </label>
-        <label htmlFor='password-input'>
-          Senha:
-          <input
-            id='password-input'
-            type='text'
-            onChange={({ target: { value } }) => {
-              setPassword(value);
-            }}
-            placeholder='**********'
-          />
-        </label>
-        <button
-          type='submit'
-          disabled={disabledButton}
-          onClick={(event) => login(event)}
-        >
-          ENTRAR
-        </button>
-        <button
-          type="button"
-          onClick={ () => navigate('/registration') }
-        >
-          Ainda não tenho conta
-        </button>
-      </form>
-      <div>
-        {failedTryRegister && (
-          <p>Usuário ou senha invalido</p>
-        )}
-      </div>
+      <section className='containerlogin'>
+        <h1>Bem Vindo!</h1>
+        <form>
+          <label htmlFor='name-input'>
+            Nome:
+            <input
+              id='name-input'
+              type='text'
+              onChange={({ target: { value } }) => {
+                setUsername(value);
+              }}
+              placeholder='Marcelo da Silva'
+            />
+          </label>
+          <label htmlFor='password-input'>
+            Senha:
+            <input
+              id='password-input'
+              type='password'
+              onChange={({ target: { value } }) => {
+                setPassword(value);
+              }}
+              placeholder='**********'
+            />
+          </label>
+          <button
+           className='btnlogin'
+            type='submit'
+            disabled={disabledButton}
+            onClick={(event) => login(event)}
+          >
+            ENTRAR
+          </button>
+          <button
+            className='btnGoRegister'
+            type="button"
+            onClick={ () => navigate('/registration') }
+          >
+            Ainda não tenho conta
+          </button>
+          <div className='failedLogin'>
+            {failedTryRegister && (
+              <p>Usuário ou senha invalido</p>
+            )}
+          </div>
+        </form>
+      </section>
     </main>
   );
 };
