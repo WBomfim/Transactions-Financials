@@ -21,6 +21,7 @@ header {
 }
 
 .userInfo h1 {
+  filter: drop-shadow(0 0 0.2rem #199f67);
   font-size: 1.1rem;
   margin: 0;
 }
@@ -46,6 +47,7 @@ header {
   color: #fffffe;
   cursor: pointer;
   font-size: 1.2rem;
+  font-weight: 600;
 }
 
 .btnLogout p {

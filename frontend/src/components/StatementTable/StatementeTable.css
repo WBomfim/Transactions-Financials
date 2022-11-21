@@ -1,38 +1,67 @@
 table {
   align-items: center;
-  border-collapse: collapse;
   display: flex;
   flex-direction: column;
+  margin: 0 auto 20px;
+  width: 94%;
+}
+
+thead {
+  align-items: center;
+  background-color: black;
+  border-radius: 10px 10px 0 0;
+  color: #fffffe;
+  display: flex;
+  font-size: 1.2rem;
+  font-weight: 600;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+tbody {
+  align-items: center;
+  background-color: black;
+  border-radius: 0 0 10px;
+  color: #fffffe;
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  font-weight: 400;
+  justify-content: space-evenly;
   width: 100%;
 }
 
 tr {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   width: 100%;
 }
 
 th {
-  border: 1px solid #ddd;
-  padding: 8px;
+  border-bottom: 1px solid #ddd;
+  padding: 5px;
   text-align: center;
-  width: 100px;
+  width: 32%;
 }
 
 td {
   align-items: center;
-  border: 1px solid #ddd;
+  border: solid #ddd 1px;
+  border-left: none;
+  border-radius: 0 0 10px;
+  border-top: none;
   display: flex;
   justify-content: center;
-  padding: 0 8px;
+  margin-top: 5px;
+  padding: 5px 0;
   text-align: center;
-  width: 100px;
+  width: 32%;
 }
 
 .valueTransactions {
   display: flex;
   justify-content: space-between;
+  padding: 0 15px;
 }
 
 .notFound {
