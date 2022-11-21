@@ -9,10 +9,74 @@
   width: 100%;
 }
 
+.filterByDate h2 {
+  color: whitesmoke;
+  font-size: 20px;
+  font-weight: 900;
+  margin: 0;
+  padding: 0;
+}
+
 .filterInputs {
   align-items: center;
   display: flex;
+  flex-direction: column;
+  height: 57%;
+  justify-content: space-between;
+  margin-top: 15px;
+  width: 100%;
+}
+
+.typeTransaction {
+  align-items: center;
+  background-color: #323232;
+  border-radius: 8px;
+  box-shadow: 2px 1px 5px #72757e;
+  display: flex;
   height: 30%;
   justify-content: space-around;
-  width: 80%;
+  width: 100%;
+}
+
+.typeTransaction label input {
+  margin-right: 2px;
+}
+
+.dateInput {
+  border-radius: 10px;
+  box-shadow: 2px 1px 5px #72757e;
+  height: 28%;
+  text-align: center;
+  width: 100%;
+}
+
+.dateInput:hover {
+  background-color: #e6e6e6;
+  transition: 0.5s;
+}
+
+.dateInput::-webkit-calendar-picker-indicator {
+  background: url('https://img.icons8.com/ios/50/000000/calendar.png') no-repeat;
+  background-size: 25px;
+  cursor: pointer;
+  height: 20px;
+  margin-right: 10px;
+  width: 20px;
+}
+
+.btnFilter {
+  background-color: #199f67;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 2px 1px 5px #72757e;
+  color: #fffffe;
+  cursor: pointer;
+  font-size: 1.1rem;
+  padding: 9px 20px;
+  width: 100%;
+}
+
+.btnFilter:hover {
+  background-color: #167d51;
+  transition: 0.5s;
 }

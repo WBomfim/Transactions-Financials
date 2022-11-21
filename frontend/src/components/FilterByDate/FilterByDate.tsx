@@ -29,19 +29,20 @@ export default function FilterByDate(
 
   return (
     <div className="filterByDate">
-      <h2>Selecione a data desejada</h2>
+      <h2>Informe a data desejada</h2>
       <div className="filterInputs">
         <input
+          className='dateInput'
           type="date"
           value={ date }
           onChange={ (e) => setDate(e.target.value) }
         />
-        <div>
+        <div className='typeTransaction'>
           <label htmlFor="all">
             <input
               id="all"
               type="radio"
-              name='typeTransactio'
+              name='typeTransaction'
               checked={ typeFilter === 'all' }
               onChange={ () => setTypeFilter('all') }
             />
@@ -51,7 +52,7 @@ export default function FilterByDate(
             <input
               id="credit"
               type="radio"
-              name='typeTransactio'
+              name='typeTransaction'
               checked={ typeFilter === 'credit' }
               onChange={ () => setTypeFilter('credit') }
             />
@@ -61,7 +62,7 @@ export default function FilterByDate(
             <input
               id="debit"
               type="radio"
-              name='typeTransactio'
+              name='typeTransaction'
               checked={ typeFilter === 'debit' }
               onChange={ () => setTypeFilter('debit') }
             />
@@ -69,6 +70,7 @@ export default function FilterByDate(
           </label>
         </div>
         <button
+          className='btnFilter'
           type="button"
           onClick={ getTransactions }
         >
