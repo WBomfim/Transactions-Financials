@@ -3,6 +3,7 @@ import Header, { Balance } from '../../components/Header/Header';
 import StatementTable, { Transaction } from '../../components/StatementTable/StatementTable';
 import Modal from '../../components/Modal/Modal';
 import FilterByDate from '../../components/FilterByDate/FilterByDate';
+import DoTransfer from '../../components/DoTransfer/DoTransfer';
 import { requestData, setToken } from '../../helpers/handleRequests';
 import './Home.css';
 
@@ -10,6 +11,7 @@ export default function Home(): JSX.Element {
   const [balance, setBalance] = useState<number>(0);
   const [transactions, setTransactions] = useState<Transaction[] | []>([]);
   const [showFilterData, setShowFilterData] = useState<boolean>(false);
+  const [showTransfer, setShowTransfer] = useState<boolean>(false);
 
   useEffect(() => {
     const closeModal = (): void => {
@@ -50,37 +52,30 @@ export default function Home(): JSX.Element {
     <>
       <Header balance={ balance } />
       <main>
-        { showFilterData && (
-          <Modal
-            show={ showFilterData }
-            setShow={ setShowFilterData }
-            children={ (
-              <FilterByDate
-                setTransactions={ setTransactions }
-              />
-            )}
-          />
-        )}
         <nav>
           <div>
             <p>Filtros</p>
             <div>
               <button
+                type="button"
                 onClick={ getTransactions }
               >
                 Todas
               </button>
               <button
+                type="button"
                 onClick={ getTrasactionsCashIn }
               >
                 Crédito
               </button>
               <button
+                type="button"
                 onClick={ getTrasactionsCashOut }
               >
                 Débito
               </button>
               <button
+                type="button"
                 onClick={ () => setShowFilterData(!showFilterData) }
               >
                 Data
@@ -88,12 +83,39 @@ export default function Home(): JSX.Element {
             </div>
           </div>
           <div>
-            <button>
-              Nova Transação
+            <button
+              type="button"
+              onClick={ () => setShowTransfer(!showTransfer) }
+            >
+              Nova Transferência
             </button>
           </div>
         </nav>
         <StatementTable transactions={transactions} />
+        <section>
+          { showFilterData && (
+            <Modal
+              show={ showFilterData }
+              setShow={ setShowFilterData }
+              children={ (
+                <FilterByDate
+                  setTransactions={ setTransactions }
+                />
+              )}
+            />
+          )}
+          { showTransfer && (
+            <Modal
+              show={ showTransfer }
+              setShow={ setShowTransfer }
+              children={ (
+                <DoTransfer
+                  setShowTransfer={ setShowTransfer }
+                />
+              )}
+            />
+          )}
+        </section>
       </main>
     </>
   );

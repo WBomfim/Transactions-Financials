@@ -13,7 +13,7 @@ export default function FilterByDate(
   const getTransactions = async (): Promise<void> => {
     const { account } = getLogin() as { account: number };
     setToken();
-    const transactions = await requestData(`/transactions/date?q=${date}`) as Transaction[];
+    const transactions = await requestData<Transaction[]>(`/transactions/date?q=${date}`);
     if (typeFilter === 'credit') {
       const transactionsCredit = transactions
         .filter(({ creditedAccountId }) => creditedAccountId === account);
