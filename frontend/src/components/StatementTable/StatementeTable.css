@@ -73,3 +73,44 @@ td {
   margin-top: 50px;
   width: 100%;
 }
+
+@media screen and ( min-width : 570px ) {
+
+  table {
+    width: 97%;
+  }
+
+  thead {
+    font-size: 1.4rem;
+  }
+
+  tbody {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and ( min-width : 1200px ) {
+
+  table {
+    filter: drop-shadow(0 0 0.3rem rgb(254, 254, 254));
+    margin-top: 18px;
+    max-width: 1200px;
+  }
+
+  thead {
+    font-size: 1.8rem;
+  }
+
+  tbody {
+    font-size: 1.5rem;
+  }
+
+  th {
+    font-size: 2rem;
+    padding: 10px;
+  }
+
+  td {
+    margin: 10px 0;
+  }
+}
