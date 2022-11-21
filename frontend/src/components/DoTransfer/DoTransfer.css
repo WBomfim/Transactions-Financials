@@ -1,0 +1,17 @@
+.transaction {
+  align-items: center;
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
+.selectInputs {
+  display: flex;
+  flex-direction: row;
+  height: 15%;
+  justify-content: space-evenly;
+  width: 80%;
+}

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { setToken, requestData, requestRegister } from '../../helpers/handleRequests';
+import './DoTransfer.css'
 
 type Recipient = {
   id: number;
@@ -51,9 +52,9 @@ export default function DoTransfer(
   };
 
   return (
-    <div>
+    <div className="transaction">
       <h2>Transferência</h2>
-      <div>
+      <div className="selectInputs">
         <select
           value={ recipientSelected }
           onChange={ ({ target: { value } }) => setRecipientSelected(value) }
