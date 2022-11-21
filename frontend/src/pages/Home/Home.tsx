@@ -68,9 +68,9 @@ export default function Home(): JSX.Element {
       <Header balance={ balance } />
       <main>
         <nav>
-          <div>
-            <p>Filtros</p>
-            <div>
+          <div className='containerFilter'>
+            <p>Filtros:</p>
+            <div className='divBtnFilter'>
               <button
                 type="button"
                 onClick={ getTransactions }
@@ -97,8 +97,9 @@ export default function Home(): JSX.Element {
               </button>
             </div>
           </div>
-          <div>
+          <div className='divBtnNewTrans'>
             <button
+              className='btnNewTransaction'
               type="button"
               onClick={ () => setShowTransfer(!showTransfer) }
             >

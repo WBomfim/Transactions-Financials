@@ -1,10 +1,13 @@
 header {
+  background-color: #16161a;
   border-bottom: solid 1px #ccc;
-  box-shadow: 0 1px 5px rgb(254, 254, 254);
+  border-radius: 0 0 6px 6px;
+  box-shadow: 0 1px 7px rgb(254, 254, 254);
   display: flex;
   height: 70px;
   justify-content: space-between;
-  position: sticky;
+  position: fixed;
+  width: 100%;
 }
 
 .userInfo {
@@ -13,7 +16,7 @@ header {
   flex-direction: column;
   height: 97%;
   justify-content: space-around;
-  margin-left: 8px;
+  margin-left: 10px;
   width: 100%;
 }
 
@@ -31,14 +34,15 @@ header {
   align-items: center;
   display: flex;
   justify-content: space-around;
-  margin-right: 8px;
+  margin-right: 10px;
   width: 40%;
 }
 
 .btnLogout {
-  background-color: #8333d2;
+  background-color: #ec19bb;
   border: none;
   border-radius: 8px;
+  box-shadow: 2px 1px 5px #3f3f3f;
   color: #fffffe;
   cursor: pointer;
   font-size: 1.2rem;
@@ -50,7 +54,7 @@ header {
 }
 
 .btnLogout:hover {
-  background-color: #6a2bba;
+  background-color: #a72689;
 }
 
 .showBalance {
@@ -61,6 +65,10 @@ header {
   justify-content: space-around;
   margin-right: 10px;
   min-width: 67px;
+}
+
+.showBalance:hover {
+  cursor: pointer;
 }
 
 .showBalance p {
