@@ -23,4 +23,4 @@ export default function Modal({ children, setShow, show }: ModalProps): JSX.Elem
       </div>
     </div>
   )
-} 
+};

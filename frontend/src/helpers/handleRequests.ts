@@ -20,6 +20,6 @@ export const requestRegister = async <T>(rota: string, body: unknown): Promise<T
 export const requestData = async <T>(rota: string): Promise<T> => {
   const { data } = await api.get(rota);
   return data;
-}
+};
 
 export default api;

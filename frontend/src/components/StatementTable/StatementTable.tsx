@@ -23,7 +23,13 @@ export default function StatementTable(
     getUserData();
   }, []);
 
-  if (transactions.length === 0) return <span>Carregando...</span>;
+  if (transactions.length === 0) {
+    return (
+      <div className="notFound">
+        <p>Nenhuma trasação encontrada.</p>
+      </div>
+    )
+  }
 
   return (
     <>

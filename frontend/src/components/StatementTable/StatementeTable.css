@@ -34,3 +34,13 @@ td {
   display: flex;
   justify-content: space-between;
 }
+
+.notFound {
+  align-items: center;
+  display: flex;
+  font-size: 30px;
+  font-weight: 900;
+  justify-content: center;
+  margin-top: 50px;
+  width: 100%;
+}

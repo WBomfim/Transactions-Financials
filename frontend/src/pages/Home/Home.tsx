@@ -12,6 +12,7 @@ export default function Home(): JSX.Element {
   const [transactions, setTransactions] = useState<Transaction[] | []>([]);
   const [showFilterData, setShowFilterData] = useState<boolean>(false);
   const [showTransfer, setShowTransfer] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     const closeModal = (): void => {
@@ -22,9 +23,11 @@ export default function Home(): JSX.Element {
 
   useEffect(() => {
     const getBalance = async (): Promise<void> => {
+      setLoading(true);
       setToken();
       const { balance } = await requestData<Balance>('/accounts/balance');
       setBalance(balance);
+      setLoading(false);
     };
     getBalance();
     getTransactions();
@@ -47,6 +50,14 @@ export default function Home(): JSX.Element {
     const transactions = await requestData<Transaction[]>('/transactions/cash-out')
     setTransactions(transactions);
   };
+
+  if (loading) {
+    return (
+      <div className="notFound">
+        <p>Carregando...</p>
+      </div>
+    )
+  }
 
   return (
     <>
