@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { requestRegister } from '../../helpers/handleRequests';
 import { getLogin, saveLogin, UserToken } from '../../helpers/handleStorage';
+import './Registratio.css';
 
 export default function Registration(): JSX.Element {
   const [username, setUsername] = useState<string>('');
@@ -49,56 +50,57 @@ export default function Registration(): JSX.Element {
 
   return (
     <main>
-      <div>
-        <button
-          type="button"
-          onClick={ () => navigate('/login') }
+      <section className='containerlogin'>
+        <form>
+          <label htmlFor='name-input'>
+            Nome:
+            <input
+              id='name-input'
+              type='text'
+              onChange={({ target: { value } }) => {
+                setUsername(value);
+              }}
+              placeholder='Marcelo da Silva'
+            />
+          </label>
+          <label htmlFor='password-input'>
+            Senha:
+            <input
+              id='password-input'
+              type='text'
+              onChange={({ target: { value } }) => {
+                setPassword(value);
+              }}
+              placeholder='**********'
+            />
+          </label>
+          <button
+            type='submit'
+            disabled={disabledButton}
+            onClick={(event) => register(event)}
           >
-          ↩️
-        </button>
-      </div>
-      <form>
-        <label htmlFor='name-input'>
-          Nome:
-          <input
-            id='name-input'
-            type='text'
-            onChange={({ target: { value } }) => {
-              setUsername(value);
-            }}
-            placeholder='Marcelo da Silva'
-          />
-        </label>
-        <label htmlFor='password-input'>
-          Senha:
-          <input
-            id='password-input'
-            type='text'
-            onChange={({ target: { value } }) => {
-              setPassword(value);
-            }}
-            placeholder='**********'
-          />
-        </label>
+            CADASTRAR
+          </button>
+          <div className='failedLogin'>
+          {failedTryRegister && (
+            <p>Usuário já está cadastrado</p>
+          )}
+        </div>
+        </form>
+        <div>
+          <p className='instructions'>
+            A senha deve ter mais de 8 caracteres, com
+            pelo menos uma letra maiúscula e um número.
+          </p>
+        </div>
         <button
-          type='submit'
-          disabled={disabledButton}
-          onClick={(event) => register(event)}
-        >
-          CADASTRAR
-        </button>
-      </form>
-      <div>
-        <p>
-          A senha deve ter mais de 8 caracteres, com
-          pelo menos uma letra maiúscula e um número.
-        </p>
-      </div>
-      <div>
-        {failedTryRegister && (
-          <p>Você já está cadastrado em nosso banco de dados.</p>
-        )}
-      </div>
+            className='btnReturn'
+            type="button"
+            onClick={ () => navigate('/login') }
+            >
+            ↩️
+          </button>
+        </section>
     </main>
   );
 };

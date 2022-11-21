@@ -8,7 +8,7 @@
 }
 
 .containerlogin h1 {
-  color: #fff;
+  color: white;
   filter: drop-shadow(0 0 0.1rem #15b76b);
   font-size: 3rem;
   font-weight: 700;
@@ -93,4 +93,3 @@ form button {
   font-weight: 600;
   margin: 10px 0;
 }
-

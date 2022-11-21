@@ -1,0 +1,16 @@
+.instructions {
+  font-size: 1rem;
+  margin: 15px auto;
+  text-align: center;
+  width: 90%;
+}
+
+.btnReturn {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  cursor: pointer;
+  font-size: 2.5rem;
+  height: 40px;
+  margin: 10px 0;
+  transition: 0.5s;
+}
