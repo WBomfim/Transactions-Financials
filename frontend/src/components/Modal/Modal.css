@@ -1,7 +1,6 @@
 .modal {
   align-items: center;
-  background-color: rgba(63, 61, 61, 0.38);
-  border-radius: 5px;
+  background-color: rgba(66, 66, 66, 0.604);
   display: flex;
   height: 100%;
   justify-content: center;
@@ -16,13 +15,13 @@
 
 .modal-main {
   align-items: center;
-  background-color: whitesmoke;
-  border-radius: 10px;
+  background-color: black;
+  border-radius: 12px;
   display: flex;
-  height: 30%;
+  height: 50%;
   justify-content: center;
   padding: 16px;
-  width: 50%;
+  width: 90%;
 }
 
 .modal-children {
@@ -35,13 +34,17 @@
 
 .modal-close {
   align-items: center;
+  background-color: black;
+  border: none;
+  color: whitesmoke;
   cursor: pointer;
   display: flex;
   font-size: 20px;
+  font-weight: 900;
   height: 30px;
   justify-content: center;
   position: absolute;
-  right: 25%;
-  top: 35%;
+  right: 12%;
+  top: 28%;
   width: 30px;
 }
