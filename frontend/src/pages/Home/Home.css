@@ -75,3 +75,30 @@ nav {
     padding-top: 116px;
   }
 }
+
+@media screen and ( min-width : 1200px ) {
+
+  nav {
+    flex-direction: row;
+    justify-content: space-between;
+    margin: auto;
+    max-width: 1500px;
+    padding: 120px 10px 10px;
+  }
+
+  .containerFilter {
+    box-shadow: 2px 1px 5px #72757e;
+    height: 120px;
+    margin-top: 0;
+  }
+
+  .divBtnNewTrans {
+    margin-left: 30px;
+    width: 35%;
+  }
+
+  .divBtnNewTrans button {
+    height: 117px;
+    width: 100%;
+  }
+}
