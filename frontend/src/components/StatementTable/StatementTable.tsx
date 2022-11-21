@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { getLogin } from '../../helpers/handleStorage';
-import { UserToken } from '../../helpers/handleStorage';
 import './StatementeTable.css';
 
 export type Transaction = {
@@ -14,12 +13,12 @@ export type Transaction = {
 export default function StatementTable(
   { transactions }: { transactions: Transaction[] }
 ): JSX.Element {
-  const [userId, setUserId] = useState<number>(0);
+  const [userAccount, setUserAccount] = useState<number>();
 
   useEffect(() => {
     const getUserData = (): void => {
-      const { account } = getLogin() as UserToken;
-      setUserId(account || 0);
+      const { account } = getLogin() as { account: number };
+      setUserAccount(account);
     };
     getUserData();
   }, []);
@@ -40,7 +39,7 @@ export default function StatementTable(
           { transactions.map(({id, debitedAccountId, value, createdAt}) => (
             <tr key={ id }>
               <td>{ new Date(createdAt).toLocaleDateString('pt-BR') }</td>
-              <td>{ userId === debitedAccountId ? 'Débito' : 'Crédito' }</td>
+              <td>{ userAccount === debitedAccountId ? 'Débito' : 'Crédito' }</td>
               <td className='valueTransactions'>
                 <p>R$</p>
                 <p>{ value.toString().replace('.', ',') }</p>
