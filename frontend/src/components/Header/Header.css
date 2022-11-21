@@ -77,3 +77,70 @@ header {
 .showBalance p {
   margin: 0;
 }
+
+@media screen and ( min-width : 500px ) {
+
+  header {
+    height: 100px;
+  }
+
+  .userInfo {
+    padding: 10px;
+  }
+
+  .userInfo h1 {
+    font-size: 1.5rem;
+  }
+
+  .userInfo p {
+    font-size: 1.2rem;
+  }
+
+  .btnLogout {
+    padding: 0 18px;
+  }
+
+  .showBalance {
+    margin-right: 22px;
+  }
+}
+
+@media screen and ( min-width : 768px ) {
+
+  .userInfo {
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-left: 20px;
+    padding: 0;
+  }
+
+  .userInfo h1 {
+    font-size: 1.8rem;
+  }
+
+  .userInfo p {
+    font-size: 1.4rem;
+    margin: 0 0 0 30px;
+  }
+
+  .btnLogout {
+    margin-right: 10px;
+    padding: 0 30px;
+  }
+}
+
+@media screen and ( min-width : 1024px ) {
+
+  .userInfo {
+    margin-left: 60px;
+  }
+
+  .showBalance {
+    width: 100px;
+  }
+
+  .showBalance p {
+    font-size: 1.4rem;
+  }
+}
