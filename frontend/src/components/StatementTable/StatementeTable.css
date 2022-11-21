@@ -67,7 +67,7 @@ td {
 .notFound {
   align-items: center;
   display: flex;
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 900;
   justify-content: center;
   margin-top: 50px;
@@ -87,6 +87,10 @@ td {
   tbody {
     font-size: 1.2rem;
   }
+
+  .notFound {
+    font-size: 25px;
+  }
 }
 
 @media screen and ( min-width : 1200px ) {
@@ -94,7 +98,7 @@ td {
   table {
     filter: drop-shadow(0 0 0.3rem rgb(254, 254, 254));
     margin-top: 18px;
-    max-width: 1200px;
+    max-width: 1470px;
   }
 
   thead {
