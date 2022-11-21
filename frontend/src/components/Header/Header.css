@@ -1,4 +1,68 @@
 header {
+  border-bottom: solid 1px #ccc;
+  box-shadow: 0 1px 5px rgb(254, 254, 254);
   display: flex;
-  justify-content: space-evenly;
+  height: 70px;
+  justify-content: space-between;
+  position: sticky;
+}
+
+.userInfo {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  height: 97%;
+  justify-content: space-around;
+  margin-left: 8px;
+  width: 100%;
+}
+
+.userInfo h1 {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.userInfo p {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.containerLogout {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  margin-right: 8px;
+  width: 40%;
+}
+
+.btnLogout {
+  background-color: #8333d2;
+  border: none;
+  border-radius: 8px;
+  color: #fffffe;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.btnLogout p {
+  margin: 0;
+  padding: 10px 20px;
+}
+
+.btnLogout:hover {
+  background-color: #6a2bba;
+}
+
+.showBalance {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+  justify-content: space-around;
+  margin-right: 10px;
+  min-width: 67px;
+}
+
+.showBalance p {
+  margin: 0;
 }

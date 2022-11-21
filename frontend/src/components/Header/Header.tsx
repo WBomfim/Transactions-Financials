@@ -31,26 +31,28 @@ export default function Header({ balance }: Balance): JSX.Element {
   return (
     <>
       <header>
-        <div>
-          <h1>{ `Olá, ${username}` }</h1>
+        <div className='userInfo'>
+            <h1>{ `Olá, ${username}` }</h1>
+            <p>{ `Cc: ${userAccount}` }</p>
         </div>
-        <div>
-          <p>{ `Cc: ${userAccount}` }</p>
-        </div>
-        <div
-          role='button'
-          onClick={ () => setShowSaldo(!showSaldo) }
-        >
-          <p>Saldo</p>
-          <p>
-            { showSaldo ? `R$ ${balance.toString().replace('.', ',')}` : '*******' }
-          </p>
-        </div>
-        <div
-          role='button'
-          onClick={ logout }
-        >
-          <p>SAIR</p>
+        <div className='containerLogout'>
+          <div
+            className='showBalance'
+            role='button'
+            onClick={ () => setShowSaldo(!showSaldo) }
+          >
+            <p>Saldo</p>
+            <p>
+              { showSaldo ? `R$ ${balance.toString().replace('.', ',')}` : '👀' }
+            </p>
+          </div>
+          <div
+            className='btnLogout'
+            role='button'
+            onClick={ logout }
+          >
+            <p>Sair</p>
+          </div>
         </div>
       </header>
     </>

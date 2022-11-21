@@ -2,7 +2,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import Registration from './pages/Registration/Registration';
 import Login from './pages/Login/Login';
 import Home from './pages/Home/Home';
-import './App.css';
+import './globalStyle.css';
 
 export default function App() {
   return (
