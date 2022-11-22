@@ -18,6 +18,7 @@ describe('Testa a rota /login', () => {
  
   describe('POST /login', () => {
     afterEach(() => (UserModel.findOne as sinon.SinonStub).restore());
+    
     it('Deve retornar um status code 200 e um token com o login realizado com sucesso', async () => {
       sinon.stub(UserModel, 'findOne').resolves(userFake[0]as UserModel);
       response = await chai.request(app).post('/login').send(loginFake.valid);
