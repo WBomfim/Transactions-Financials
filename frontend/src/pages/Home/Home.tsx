@@ -18,10 +18,6 @@ export default function Home(): JSX.Element {
     const closeModal = (): void => {
       setShowFilterData(false);
     };
-    const updateTransactions = async (): Promise<void> => {
-      await getTransactions();
-    };
-    updateTransactions();
     closeModal();
   }, [transactions]);
 
@@ -132,6 +128,7 @@ export default function Home(): JSX.Element {
                 <DoTransfer
                   setShowTransfer={ setShowTransfer }
                   updateBalance={ getBalance }
+                  updateTransactions={ getTransactions }
                 />
               )}
             />

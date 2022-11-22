@@ -11,10 +11,11 @@ type Recipient = {
 type FunctionProps = {
   setShowTransfer: (value: boolean) => void;
   updateBalance: () => void;
+  updateTransactions: () => void;
 };
 
 export default function DoTransfer(
-  { setShowTransfer, updateBalance }: FunctionProps,
+  { setShowTransfer, updateBalance, updateTransactions }: FunctionProps,
 ): JSX.Element {
   const [recipients, setRecipients] = useState<Recipient[]>([]);
   const [recipientSelected, setRecipientSelected] = useState<string>('');
@@ -55,6 +56,7 @@ export default function DoTransfer(
     );
     setShowTransfer(false);
     updateBalance();
+    updateTransactions();
   };
 
   return (

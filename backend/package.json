@@ -6,7 +6,6 @@
   "author": "Willian Bomfim",
   "license": "ISC",
   "scripts": {
-    "build": "/bin/sh tsc_eval.sh",
     "dev": "tsnd src/api/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "db:reset": "npx -y tsc && npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
