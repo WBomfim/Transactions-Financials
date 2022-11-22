@@ -15,6 +15,7 @@ export enum ErrorsTypes {
   INVALID_CREDIT_ACCOUNT = 'INVALID_CREDIT_ACCOUNT',
   INSUFFICIENT_BALANCE = 'INSUFFICIENT_BALANCE',
   INVALID_VALUE = 'INVALID_VALUE',
+  USER_NOT_FOUND = 'USER_NOT_FOUND',
 }
 
 export type ErrorsCatalog = {
@@ -57,5 +58,9 @@ export const errorCatalog: ErrorsCatalog = {
   INVALID_VALUE: {
     statusHttp: StatusHttp.CONFLICT,
     message: 'The value cannot be less than or equal to zero',
+  },
+  USER_NOT_FOUND: {
+    statusHttp: StatusHttp.NOT_FOUND,
+    message: 'User not found',
   },
 };

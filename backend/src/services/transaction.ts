@@ -19,7 +19,8 @@ const createTransaction = async (userObj: User, transactionObj: TransactionReque
   const { balance: balanceforDebit } = (
     await getAccountByUsername(debitUsername)
   );
-
+  
+  if (!creditAccount) throw new Error(ErrorsTypes.USER_NOT_FOUND);
   if (debitAccount === creditAccount) throw new Error(ErrorsTypes.INVALID_CREDIT_ACCOUNT);
   if (balanceforDebit < value) throw new Error(ErrorsTypes.INSUFFICIENT_BALANCE);
   if (value <= 0) throw new Error(ErrorsTypes.INVALID_VALUE);
