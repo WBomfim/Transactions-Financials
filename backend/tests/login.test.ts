@@ -3,9 +3,7 @@ import chaiHttp = require('chai-http');
 import * as sinon from 'sinon';
 import { Response } from 'superagent';
 import app from '../src/api/app';
-// @ts-ignore
 import loginFake from './mocks/logins';
-// @ts-ignore
 import userFake from './mocks/users';
 import UserModel from './../src/database/models/User';
 
