@@ -2,7 +2,7 @@ version: '3.9'
 services:
   frontend:
     image: node:16.14-alpine
-    container_name: NG_frontend-app
+    container_name: TF_frontend
     platform: linux/x86_64
     working_dir: /app_frontend
     volumes: 
@@ -15,11 +15,12 @@ services:
       - backend
     ports:
       - 3000:3000
-
+    networks:
+      - front-to-back
 
   backend:
     image: node:16.14-alpine
-    container_name: NG_backend-app
+    container_name: TF_backend
     platform: linux/x86_64
     working_dir: /app_backend
     volumes: 
@@ -32,29 +33,45 @@ services:
       - db
     ports:
       - 3001:3001
+    networks:
+      - front-to-back
+      - back-to-db
     environment:
-      - APP_PORT=3001
-      - JWT_SECRET=secretJWT
-      - DB_USER=postgres
-      - DB_PASSWORD=123456
-      - DB_HOST=192.168.160.1
-      - DB_PORT=3002
-      - DB_NAME=NG_financials
-
+      APP_PORT: 3001
+      JWT_SECRET: secretJWT
+      DB_USER: postgres
+      DB_PASSWORD: 123456
+      DB_NAME: NG_financials
+      DB_HOST: db
+      DB_PORT: 5432
 
   db:
-    image: postgres:13.4-alpine
-    container_name: NG_db
+    image: postgres:13.9-alpine
+    container_name: TF_db
     platform: linux/x86_64
     volumes:
       - ./db:/var/lib/postgresql/data
-    restart: 'always'
+    restart: always
     ports:
       - 3002:5432
     environment:
-      - POSTGRES_PASSWORD=123456
-      - POSTGRES_HOST_AUTH_METHOD=trust
+      POSTGRES_PASSWORD: 123456
+    networks:
+      - back-to-db
+      - postgres
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: TF_pgadmin
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: pgadmin@pgadmin.org
+      PGADMIN_DEFAULT_PASSWORD: 123456
+    networks:
+      - postgres
 
 networks:
-  default:
-    name: NG_default-network
+  front-to-back: {}
+  back-to-db: {}
+  postgres:
+    driver: bridge
