@@ -35,7 +35,7 @@
     "eslint-plugin-sonarjs": "0.10.0",
     "mocha": "^10.1.0",
     "nyc": "^15.1.0",
-    "sequelize-cli": "^6.3.0",
+    "sequelize-cli": "^6.5.2",
     "sinon": "^14.0.2",
     "ts-node": "10.7.0",
     "ts-node-dev": "1.1.8",

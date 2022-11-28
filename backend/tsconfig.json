@@ -4,7 +4,7 @@
     "module": "commonjs",
     "sourceMap": true,                     
     "outDir": "./build",
-    "rootDir": "./",
+    "rootDirs": ["./src", "./tests"],
     "strict": true,
     "moduleResolution": "node",
     "baseUrl": ".", 

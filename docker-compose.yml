@@ -41,7 +41,7 @@ services:
       JWT_SECRET: secretJWT
       DB_USER: postgres
       DB_PASSWORD: 123456
-      DB_NAME: NG_financials
+      DB_NAME: TF_Bank
       DB_HOST: db
       DB_PORT: 5432
 
