@@ -1,9 +1,9 @@
-# Boas-vindas ao projeto de teste de Willian Bomfim!
+# Boas-vindas ao projeto Transactions Finacials!
 
 <details>
 <summary><strong>👨‍💻 Descrição do projeto</strong></summary><br />
 
-O projeto consiste em estruturar uma aplicação web fullstack, dockerizada, cujo objetivo seja possibilitar que usuários da NG consigam realizar transferências internas entre si.
+O projeto consiste em estruturar uma aplicação web fullstack, dockerizada, cujo objetivo seja possibilitar que usuários consigam realizar transferências internas entre si.
 </details>
 
 <details>
