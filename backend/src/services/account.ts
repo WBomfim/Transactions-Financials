@@ -5,15 +5,15 @@ import { ErrorsTypes } from '../types/ErrorsCatalog';
 import { AccountAmount } from '../types/Account';
 
 export const getAccountByUsername = async (username: string) => {
-  try {
-    const { accountId, account: { balance } } = await UserModel.findOne({
-      where: { username }, attributes: ['accountId'],
-      include: [{ model: AccountModel, as: 'account', attributes: ['balance'] }],
-    }) as unknown as AccountAmount;
-    return { accountId , balance };
-  } catch (error) {
-    throw new Error(ErrorsTypes.USER_NOT_FOUND);
-  }
+  const user = await UserModel.findOne({
+    where: { username }, attributes: ['accountId'],
+    include: [{ model: AccountModel, as: 'account', attributes: ['balance'] }],
+  }) as unknown as AccountAmount;
+
+  if (!user) throw new Error(ErrorsTypes.USER_NOT_FOUND);
+  const { accountId, account: { balance } } = user;
+  
+  return { accountId , balance };
 };
 
 const findBalanceById = async (id: string): Promise<Partial<Account>> => {
